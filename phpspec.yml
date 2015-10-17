@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: DemoLaravel
+        psr4_prefix: DemoLaravel
+        src_path: app
