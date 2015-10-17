@@ -23,6 +23,7 @@ $factory->define(DemoLaravel\User::class, function (Faker\Generator $faker) {
 $factory->define(DemoLaravel\Produto::class, function (Faker\Generator $faker) {
     return [
         'codigo' => $faker->numberBetween(0, 1000),
-        'descricao' => $faker->text()
+        'descricao' => $faker->text(),
+        'quantidade' => $faker->numberBetween(0, 500)
     ];
 });
