@@ -17,7 +17,6 @@ class CreateProdutosTable extends Migration
             $table->smallInteger('codigo');
             $table->string('descricao');
             $table->char('situacao')->default('A');
-            $table->smallInteger('quantidade')->default(null);
             $table->timestamps();
         });
     }
