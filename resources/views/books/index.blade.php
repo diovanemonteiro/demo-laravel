@@ -12,7 +12,6 @@
             <th>SubTitle</th>
             <th>Author</th>
             <th>Year</th>
-            <th>Image</th>
         </tr>
         </thead>
         <tbody>
@@ -24,7 +23,6 @@
                 <td>{{ $book->subtitle }}</td>
                 <td>{{ $book->author }}</td>
                 <td>{{ $book->year }}</td>
-                <td><img src="{{ $book->image }}" alt="{{ $book->title }}"></td>
             </tr>
         @endforeach
         </tbody>

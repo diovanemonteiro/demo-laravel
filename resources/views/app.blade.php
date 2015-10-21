@@ -54,7 +54,13 @@
 		</div>
 	</nav>
 
-	@yield('content')
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+			@yield('content')
+			</div>
+		</div>
+	</div>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
