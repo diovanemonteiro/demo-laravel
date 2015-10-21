@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/produtos', 'ProdutosController@index');
+Route::get('/books', 'BooksController@index');
 
 Route::get('/materiais', function (\DemoLaravel\Produto $produto) {
     $produtos = $produto->all();
