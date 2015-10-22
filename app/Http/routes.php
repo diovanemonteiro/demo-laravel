@@ -16,11 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('produtos', 'ProdutosController@index');
+
+Route::get('books', 'BooksController@index');
 Route::get('books/create', 'BooksController@create');
 Route::post('books/store', 'BooksController@store');
-
-Route::get('/materiais', function (\DemoLaravel\Produto $produto) {
-    $produtos = $produto->all();
-    dd($produtos);
-//    return 'Listagem de Produtos';
-});

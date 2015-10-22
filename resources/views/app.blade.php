@@ -20,7 +20,7 @@
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -54,11 +54,9 @@
 		</div>
 	</nav>
 
-	<div class="container-fluid">
+	<div class="container container-fluid">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
 			@yield('content')
-			</div>
 		</div>
 	</div>
 

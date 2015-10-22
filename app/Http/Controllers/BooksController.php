@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DemoLaravel\Http\Requests;
 use DemoLaravel\Http\Controllers\Controller;
 use DemoLaravel\Book;
+use DemoLaravel\Http\Requests\StoreBookRequest;
+use Illuminate\Support\Facades\Session;
 
 class BooksController extends Controller
 {
@@ -38,7 +40,10 @@ class BooksController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        Book::create($request->all());
+        $input = $request->all();
+        Book::create($input);
+        Session::flash('flash_message', 'Book criado com sucesso.');
+        return redirect()->back();
     }
 
     /**
