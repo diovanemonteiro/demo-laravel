@@ -43,7 +43,7 @@ class BooksController extends Controller
         $input = $request->all();
         Book::create($input);
         Session::flash('flash_message', 'Book criado com sucesso.');
-        return redirect()->back();
+        return redirect()->route('books');
     }
 
     /**
