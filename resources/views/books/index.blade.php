@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="container">
+<div class="col-md-10 col-md-offset-1">
     <h1>Produtos</h1>
     <table class="table table-striped table-hover">
         <thead>

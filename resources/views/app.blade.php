@@ -19,8 +19,8 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
-	<nav class="navbar navbar-inverse">
+<body style="padding-top: 50px;">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -54,7 +54,7 @@
 		</div>
 	</nav>
 
-	<div class="container container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			@yield('content')
 		</div>
