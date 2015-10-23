@@ -35,20 +35,20 @@
                     <!-- Subtitle form input -->
                     <div class="form-group @if ($errors->has('subtitle')) has-error @endif">
                         {!! Form::label('subtitle', 'Subtitle:', ['class' => 'control-label']) !!}
-                        {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('subtitle', null, ['class' => 'form-control', 'placeholder' => 'Book Subtitle']) !!}
                         @if ($errors->has('subtitle')) <p class="help-block">{{ $errors->first('subtitle') }}</p> @endif
                     </div>
 
                     <!-- Content form input -->
                     <div class="form-group @if ($errors->has('description')) has-error @endif">
                         {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}
-                        {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 5]) !!}
+                        {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Book Description', 'rows' => 5]) !!}
                         @if ($errors->has('description')) <p class="help-block">{{ $errors->first('description') }}</p> @endif
                     </div>
 
                     <!-- ISBN form input -->
                     <div class="form-group @if ($errors->has('isbn')) has-error @endif">
-                        {!! Form::label('isbn', 'ISBN:', ['class' => 'control-label']) !!}
+                        {!! Form::label('isbn', 'ISBN:', ['class' => 'control-label', 'placeholder' => 'ISBN Title']) !!}
                         {!! Form::text('isbn', null, ['class' => 'form-control']) !!}
                         @if ($errors->has('isbn')) <p class="help-block">{{ $errors->first('isbn') }}</p> @endif
                     </div>
@@ -56,26 +56,26 @@
                     <!-- Author form input -->
                     <div class="form-group @if ($errors->has('author')) has-error @endif">
                         {!! Form::label('author', 'Author:', ['class' => 'control-label']) !!}
-                        {!! Form::text('author', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('author', null, ['class' => 'form-control', 'placeholder' => 'Book Author']) !!}
                         @if ($errors->has('author')) <p class="help-block">{{ $errors->first('author') }}</p> @endif
                     </div>
 
                     <!-- Year form input -->
                     <div class="form-group">
                         {!! Form::label('year', 'Year:') !!}
-                        {!! Form::text('year', null, ['class' => 'form-control', 'size' => 10]) !!}
+                        {!! Form::text('year', null, ['class' => 'form-control', 'placeholder' => 'Book Year Publication', 'size' => 10]) !!}
                     </div>
 
                     <!-- Publisher form input -->
                     <div class="form-group">
                         {!! Form::label('publisher', 'Publisher:') !!}
-                        {!! Form::text('publisher', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('publisher', null, ['class' => 'form-control', 'placeholder' => 'Book Publisher']) !!}
                     </div>
 
                     <!-- Pages form input -->
                     <div class="form-group">
                         {!! Form::label('pages', 'Pages:') !!}
-                        {!! Form::text('pages', null, ['class' => 'form-control', 'size' => 10]) !!}
+                        {!! Form::text('pages', null, ['class' => 'form-control', 'placeholder' => 'Book Pages', 'size' => 10]) !!}
                     </div>
 
                     {!! Form::submit('Create new book', ['class' => 'btn btn-primary']) !!}
