@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('produtos', 'ProdutosController@index');
 
-Route::get('books', 'BooksController@index');
-Route::get('books/create', 'BooksController@create');
-Route::post('books/store', 'BooksController@store');
+Route::resource('books', 'BooksController');
+
+//Route::get('books', ['as' => 'books', 'uses' => 'BooksController@index']);
+//Route::get('books/create', ['as' => 'books.create', 'uses' => 'BooksController@create']);
+//Route::get('books/store', ['as' => 'books.store', 'uses' => 'BooksController@store']);

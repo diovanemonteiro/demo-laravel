@@ -19,7 +19,7 @@
                     </div>
                     @endif
 
-                    {!! Form::open(['url' => 'books/store']) !!}
+                    {!! Form::open(['route' => 'books.store']) !!}
 
                             <!-- Title form input -->
                     <div class="form-group @if ($errors->has('title')) has-error has-feedback @endif">
@@ -48,8 +48,8 @@
 
                     <!-- ISBN form input -->
                     <div class="form-group @if ($errors->has('isbn')) has-error @endif">
-                        {!! Form::label('isbn', 'ISBN:', ['class' => 'control-label', 'placeholder' => 'ISBN Title']) !!}
-                        {!! Form::text('isbn', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('isbn', 'ISBN:', ['class' => 'control-label']) !!}
+                        {!! Form::text('isbn', null, ['class' => 'form-control', 'placeholder' => 'ISBN Title']) !!}
                         @if ($errors->has('isbn')) <p class="help-block">{{ $errors->first('isbn') }}</p> @endif
                     </div>
 
