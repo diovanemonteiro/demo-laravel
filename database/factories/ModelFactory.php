@@ -27,3 +27,17 @@ $factory->define(DemoLaravel\Produto::class, function (Faker\Generator $faker) {
         'quantidade' => $faker->numberBetween(0, 500)
     ];
 });
+
+$factory->define(DemoLaravel\Book::class, function (Faker\Generator $faker) {
+    return [
+        'isbn' => $faker->isbn10,
+        'title' => $faker->text(50),
+        'subtitle' => $faker->text(100),
+        'description' => $faker->paragraphs(5, true),
+        'author' => $faker->name,
+        'publisher' => $faker->company,
+        'pages' => $faker->numberBetween(0, 1000),
+        'year' => $faker->year,
+        'image' => $faker->url
+    ];
+});

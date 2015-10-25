@@ -2,6 +2,8 @@
 
 namespace DemoLaravel\Http\Controllers;
 
+use DemoLaravel\ApiBook;
+use DemoLaravel\Book;
 use Illuminate\Http\Request;
 use DemoLaravel\Http\Requests;
 use DemoLaravel\Http\Controllers\Controller;
@@ -84,5 +86,37 @@ class ProdutosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function import()
+    {
+        $page = 1;
+        $api = new ApiBook;
+        $dataSet = $api->getBooks('php');
+
+        while (intval($dataSet->Total) > 0)
+        {
+            foreach ($dataSet->Books as $row)
+            {
+                $book = $api->getBook($row->ID);
+                $data = [
+                    'isbn' => $book->ISBN,
+                    'title' => $book->Title,
+                    'subtitle' => $book->SubTitle,
+                    'description' => $book->Description,
+                    'author' => $book->Author,
+                    'pages' => $book->Page,
+                    'year' => $book->Year,
+                    'publisher' => $book->Publisher,
+                    'image' => $book->Image
+                ];
+                Book::create($data);
+            }
+
+            $page++;
+            $dataSet = $api->getBooks('php', $page);
+        }
+
+        return true;
     }
 }

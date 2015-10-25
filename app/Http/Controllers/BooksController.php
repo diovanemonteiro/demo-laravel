@@ -18,7 +18,7 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(20);
+        $books = Book::paginate();
 
         return view('books.index', ['books' => $books]);
     }
@@ -42,7 +42,7 @@ class BooksController extends Controller
     public function store(StoreBookRequest $request)
     {
         $input = $request->all();
-
+        dd($input);
         Book::create($input);
         Session::flash('flash_message', 'Book criado com sucesso.');
 
