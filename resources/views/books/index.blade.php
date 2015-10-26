@@ -1,20 +1,21 @@
 @extends('app')
 
 @section('content')
-<div class="col-md-10 col-md-offset-1">
-    <h1>Produtos</h1>
-    <a href="{{ route('books.create') }}" class="btn btn-success">New Book</a>
-    <hr>
-    <table class="table table-striped table-bordered table-hover">
+<h1 class="page-header">Books List
+    <div class="pull-right">
+        <a href="{{ route('books.create') }}" class="btn btn-success">New Book</a>
+    </div>
+</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-condensed table-bordered table-hover">
         <thead>
-        <tr class="bg-info">
+        <tr>
             <th>ID</th>
             <th>ISBN</th>
             <th>Title</th>
-            <th>SubTitle</th>
             <th>Author</th>
             <th>Year</th>
-            <th class="col-md-2">Actions</th>
+            <th class="col-md-2 text-center">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -23,19 +24,18 @@
                 <td>{{ $book->id }}</td>
                 <td>{{ $book->isbn }}</td>
                 <td>{{ $book->title }}</td>
-                <td>{{ $book->subtitle }}</td>
                 <td>{{ $book->author }}</td>
                 <td>{{ $book->year }}</td>
-                <td>
-                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-info">View</a>
-                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="{{ route('books.destroy', $book->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                <td class="text-center">
+                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-xs btn-info" title="View"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-xs btn-warning" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{{ route('books.destroy', $book->id) }}" class="btn btn-xs btn-danger" title="Remove"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-
-    {!! $books->render() !!}
 </div>
+
+{!! $books->render() !!}
 @endsection

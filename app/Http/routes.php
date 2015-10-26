@@ -16,9 +16,14 @@ Route::get('/', function () {
 });
 
 Route::get('produtos', 'ProdutosController@index');
-Route::get('produtos/import', ['as' => 'produtos.import', 'uses' => 'ProdutosController@import']);
+Route::get('produtos/import/{query}', ['as' => 'produtos.import', 'uses' => 'ProdutosController@import']);
 
 Route::resource('books', 'BooksController');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 //Route::get('books', ['as' => 'books', 'uses' => 'BooksController@index']);
 //Route::get('books/create', ['as' => 'books.create', 'uses' => 'BooksController@create']);

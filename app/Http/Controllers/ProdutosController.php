@@ -4,6 +4,7 @@ namespace DemoLaravel\Http\Controllers;
 
 use DemoLaravel\ApiBook;
 use DemoLaravel\Book;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use DemoLaravel\Http\Requests;
 use DemoLaravel\Http\Controllers\Controller;
@@ -88,11 +89,12 @@ class ProdutosController extends Controller
         //
     }
 
-    public function import()
+    public function import($query)
     {
         $page = 1;
+
         $api = new ApiBook;
-        $dataSet = $api->getBooks('php');
+        $dataSet = $api->getBooks($query);
 
         while (intval($dataSet->Total) > 0)
         {
@@ -110,13 +112,18 @@ class ProdutosController extends Controller
                     'publisher' => $book->Publisher,
                     'image' => $book->Image
                 ];
-                Book::create($data);
+
+                try {
+                    Book::create($data);
+                } catch (QueryException $e) {
+                    continue;
+                }
             }
 
             $page++;
-            $dataSet = $api->getBooks('php', $page);
+            $dataSet = $api->getBooks($query, $page);
         }
 
-        return true;
+        return redirect()->route('books.index');
     }
 }

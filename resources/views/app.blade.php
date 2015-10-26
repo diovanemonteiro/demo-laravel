@@ -5,9 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
-	{{--<link href="{{ asset('/css/app.css') }}" rel="stylesheet">--}}
 
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+	{{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">--}}
+	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -56,7 +57,18 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			@yield('content')
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="{{ route('books.index') }}">Home Books<span class="sr-only">(current)</span></a></li>
+					<li><a href="{{ route('books.create') }}">Create Book</a></li>
+					<li><a href="#">Analytics</a></li>
+					<li><a href="#">Export</a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				@yield('content')
+			</div>
 		</div>
 	</div>
 
